@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href="@{/css/index.css}" />
+</head>
+<body>
+<nav>
+	<h1>TMS App</h1>
+	<div><button th:onclick="">Loads</button>
+	<button th:onclick="">Shipment</button>
+	<button th:onclick="">Shipping Order</button>
+	<button th:onclick="">Invoices</button>
+	<button th:onclick="">Locations</button>
+	<button th:onclick="">Code Table</button>
+	<button th:onclick="|location.href='@{/user/home/allUsers}'|">Users</button>
+	<button onclick="window.location.href='/user/updateUserPage'">Update User</button>
+	
+	</div>
+	
+	<div>
+	<button th:onclick="|location.href='@{/user/logout}'|">logout</button>
+		<button onclick="window.location.href='/user/home/deleteUser'">Delete User</button>
+	</div>
+	
+	
+	<!-- <a th:href="@{/user/logout}">Logout</a> -->
+	
+</nav>
+
+	<div class="cont">
+		<p>Hi </p><span th:text="${user.fullName}"></span>
+		<p>My info: </p>
+		<span th:text="${user.email}"></span>
+				<span th:text="${user.phoneNumber}"></span>
+		
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="" th:href="@{/CSS/register.css}" type="text/css" />
+</head>
+<body>
+	<div class="box">
+		<h1>Register to TuneHub</h1>
+		<br/>
+		<form action="/user/loginUser" method = "POST">
+			<label>Email : </label>
+			<input type="email" name="email"/>
+			<br/>
+			
+			<label>Password : </label>
+			<input type="password" name="password"/>
+			<br/>
+	
+			<button type="submit" value="submit">Create Account</button>
+		</form>
+		<div>
+			<a href="/user/Register">Create an account?</a>
+		</div>
+	</div>
+</body>
+</html>
