@@ -2,10 +2,7 @@ package com.io.ghosttms.entity;
 
 import java.util.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,6 +31,7 @@ public class User {
 	private long phoneNumber;
 	private Date createdDate;
 	private Date modifiedDate;
+	@Enumerated
 	private Role role;
 	private String gender;
 	
