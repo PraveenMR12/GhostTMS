@@ -10,13 +10,25 @@ import lombok.Data;
 @Entity
 public class Shipment {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "OId_generator")
+	@SequenceGenerator(name = "OId_generator",
+			sequenceName = "OId_generator",
+			allocationSize = 10,
+			initialValue = Integer.MAX_VALUE)
+	private Long OId;
 	private long shipmentID;
 	@OneToMany
 	List<References> references;
 	
 	private LocalDateTime pickupDate;
 	private LocalDateTime deliveryDate;
+
+	@Embedded
+	private SNLocation billToLocation;
+	@Embedded
+	private SNLocation shipFromLocation;
+	@Embedded
+	private SNLocation shipToLocation;
 	
 	private String status;
 

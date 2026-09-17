@@ -23,7 +23,13 @@ import lombok.ToString;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,
+			generator = "OId_generator")
+	@SequenceGenerator(name = "OId_generator",
+			sequenceName = "OId_generator",
+			allocationSize = 10,
+			initialValue = Integer.MAX_VALUE)
+	private Long OId;
 	private int userId;
 	private String fullName;
 	private String email;
@@ -31,7 +37,7 @@ public class User {
 	private long phoneNumber;
 	private Date createdDate;
 	private Date modifiedDate;
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private Role role;
 	private String gender;
 	
