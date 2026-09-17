@@ -7,7 +7,12 @@ import lombok.Data;
 @Entity
 public class Item {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "OId_generator")
+	@SequenceGenerator(name = "OId_generator",
+			sequenceName = "OId_generator",
+			allocationSize = 10,
+			initialValue = Integer.MAX_VALUE)
+	private Long OId;
 	private String itemId;
 	private String itemDescription;
 	private double height;
