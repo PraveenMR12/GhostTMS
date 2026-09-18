@@ -8,11 +8,11 @@
 		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.tunehub</groupId>
+	<groupId>com.io.ghosttms</groupId>
 	<artifactId>ghosttms</artifactId>
 	<version>0.0.1</version>
 	<name>com.io.ghosttms</name>
-	<description>tunehub is a music streaming application</description>
+	<description>This is a TMS Application</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -46,9 +46,15 @@
 			<optional>true</optional>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>com.mysql</groupId>-->
+<!--			<artifactId>mysql-connector-j</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+
 		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc11</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
