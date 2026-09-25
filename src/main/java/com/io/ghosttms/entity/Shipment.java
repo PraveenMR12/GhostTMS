@@ -1,6 +1,7 @@
 package com.io.ghosttms.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -15,10 +16,20 @@ public class Shipment {
 			sequenceName = "OId_generator",
 			allocationSize = 10,
 			initialValue = Integer.MAX_VALUE)
+	@Column(name = "OId")
 	private Long OId;
-	private long shipmentID;
-	@OneToMany
-	List<References> references;
+
+	@Column(unique = true)
+	private String shipmentID;
+
+	@ElementCollection
+	@CollectionTable(
+			name = "reference",
+			joinColumns = @JoinColumn(name = "OId")
+	)
+	List<Reference> references = new ArrayList<>();
+
+	private LocalDateTime createDate;
 	
 	private LocalDateTime pickupDate;
 	private LocalDateTime deliveryDate;
@@ -33,9 +44,16 @@ public class Shipment {
 	private String status;
 
 	@OneToMany
-	private List<AuditLogs> logs;
-	
-	@OneToMany
-	private List<Item> items;
+	private List<AuditLogs> logs = new ArrayList<>();
+
+	@ElementCollection
+	@CollectionTable(
+			name = "items",
+			joinColumns = @JoinColumn(name = "OId")
+	)
+	private List<Items> items = new ArrayList<>();
+
+	@Embedded
+	private Rates rates;
 
 }
