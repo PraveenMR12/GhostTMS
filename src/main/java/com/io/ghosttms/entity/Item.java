@@ -22,9 +22,5 @@ public class Item {
 	private int quantity;
 	
 	private String itemClass;
-	
-	@ManyToOne
-	private Shipment shipment;
-	
 
 }
